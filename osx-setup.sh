@@ -70,6 +70,18 @@ finish.set(){
 #   Configurations    #
 # ------------------- #
 
+config.speedup(){
+  # Speed up window tranisations 
+  defaults write NSGlobalDomain NSWindowResizeTime 0.01;
+  # Speed up mission control transition (F3)
+  defaults write com.apple.dock expose-animation-duration -float 0.1; 
+  # Speed up Launchpad (F4)
+  defaults write com.apple.dock springboard-show-duration -float 0.1;
+  defaults write com.apple.dock springboard-hide-duration -float 0.1; 
+  # Restart dock so effects can kick in.
+  killall Dock;
+}
+
 config.install_dir(){
   local bool=$(is_directory "$dir")
   if [[ "$bool" ]]; then
@@ -78,7 +90,8 @@ config.install_dir(){
     exit 1
   else
     console.log "Creating installation directory '~/osx-setup'..."
-    mkdir "$dir"
+    mkdir "$dir";
+    cd "$dir";
   fi
 }
 
