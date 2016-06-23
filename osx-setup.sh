@@ -38,13 +38,15 @@ brew install nvm
 source $(brew --prefix nvm)/nvm.sh
 echo "source $(brew --prefix nvm)/nvm.sh" >> ~/.bash_profile
 
-# install a node version
-nvm install v5.10
-nvm use --delete-prefix v5.10
-
 # npm packages
-npm install -g npm
-npm install -g bower gulp grunt-cli cordova ionic firebase-tools nodemon node-inspector supervisor
+npm install -g npm node-inspector nodemon supervisor
+npm install -g bower gulp grunt-cli cordova ionic firebase-tools
+npm install -g babel-cli jspm npm-check-updates typings uglify-js
+
+# install a node version
+nvm install v6.2.2
+nvm alias default v6.2.2
+nvm use default
 
 # optional git setup
 config.git(){
