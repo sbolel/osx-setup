@@ -10,25 +10,29 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew tap homebrew/dupes homebrew/services homebrew/versions homebrew/php caskroom/cask caskroom/versions
 
 # update after tapping
-brew update; brew upgrade; brew cleanup; brew cask cleanup
+brew update && brew upgrade
+brew cleanup && brew cask cleanup
 
 # system
 brew install bash-completion mysql ruby s3cmd wget
 brew install --with-mysql --with-cgi php55
 brew cask install java
 
-# essentials
-brew cask install 1password dropbox google-chrome google-drive google-hangouts spotify
-
-# dev
-brew cask install atom iterm2-beta sublime-text3 vim webstorm
-
-# communication
-brew cask install slack skype
+# development
+brew install emacs --with-cocoa
+brew linkapps emacs
+brew install vim
+brew cask install iterm2-beta atom sublime-text3 webstorm
 
 # android
 brew install android-sdk android-ndk
 brew cask install android-studio
+
+# essentials
+brew cask install 1password dropbox google-chrome google-drive google-hangouts spotify imagemagick
+
+# communication
+brew cask install slack skype
 
 # vm
 brew cask install virtualbox virtualbox-extension-pack vagrant vagrant-manager
