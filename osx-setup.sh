@@ -39,12 +39,10 @@ source $(brew --prefix nvm)/nvm.sh
 echo "source $(brew --prefix nvm)/nvm.sh" >> ~/.bash_profile
 
 # npm packages
-npm install -g npm node-inspector nodemon supervisor
-npm install -g bower gulp grunt-cli cordova ionic firebase-tools
-npm install -g babel-cli jspm npm-check-updates typescript typings uglify-js
+npm install -g npm angular-cli babel-cli bower bower-check-updates cordova ember-cli firebase-tools grunt-cli gulp ionic jspm karma node-inspector nodemon npm-check-updates protractor rimraf supervisor typescript typings uglify-js watchman webpack webpack-dev-server
 
 # install a node version
-nvm install v6.2.2
+nvm install v6.2.2d
 nvm alias default v6.2.2
 nvm use default
 
@@ -74,4 +72,5 @@ config.speedup_osx(){
 }
 
 # update & cleanup again
-brew update; brew upgrade; brew cleanup; brew cask cleanup
+brew update && brew upgrade
+brew cleanup && brew cask cleanup
