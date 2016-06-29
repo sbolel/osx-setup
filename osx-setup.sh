@@ -39,7 +39,7 @@ source $(brew --prefix nvm)/nvm.sh
 echo "source $(brew --prefix nvm)/nvm.sh" >> ~/.bash_profile
 
 # npm packages
-npm install -g npm angular-cli babel-cli bower bower-check-updates cordova ember-cli firebase-tools grunt-cli gulp ionic jspm karma node-inspector nodemon npm-check-updates protractor rimraf supervisor typescript typings uglify-js watchman webpack webpack-dev-server
+npm install -g npm angular-cli babel-cli bower bower-check-updates cordova ember-cli firebase-tools grunt-cli gulp ionic jspm karma node-inspector nodemon npm-check-updates protractor rimraf supervisor typescript typings uglify-js watchman webpack webpack-dev-server yo generator-kyper-react
 
 # install a node version
 nvm install v6.2.2d
