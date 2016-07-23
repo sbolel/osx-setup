@@ -7,7 +7,12 @@
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # tap
-brew tap homebrew/dupes homebrew/services homebrew/versions homebrew/php caskroom/cask caskroom/versions
+brew tap homebrew/dupes 
+brew tap homebrew/services 
+brew tap homebrew/versions 
+brew tap homebrew/php 
+brew tap caskroom/cask 
+brew tap caskroom/versions
 
 # update after tapping
 brew update && brew upgrade
