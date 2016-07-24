@@ -6,7 +6,7 @@
 # download and install homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# tap
+# taps
 brew tap homebrew/dupes 
 brew tap homebrew/services 
 brew tap homebrew/versions 
@@ -21,39 +21,39 @@ brew cleanup && brew cask cleanup
 # system
 brew install bash-completion mysql ruby s3cmd wget
 brew install --with-mysql --with-cgi php55
-brew cask install java
 
 # development
-brew install emacs --with-cocoa
+brew install emacs
 brew linkapps emacs
-brew install vim
-brew cask install iterm2-beta atom sublime-text3 webstorm
-
-# android
-brew install android-sdk android-ndk
-brew cask install android-studio
+brew cask install iterm2-beta sublime-text3 webstorm atom java
 
 # essentials
-brew cask install 1password dropbox google-chrome google-drive google-hangouts spotify imagemagick
-
-# communication
-brew cask install slack skype
-
-# vm
-brew cask install virtualbox virtualbox-extension-pack vagrant vagrant-manager
+brew cask install 1password dropbox google-chrome google-drive google-hangouts slack spotify skype imagemagick
 
 # nvm
 brew install nvm
 source $(brew --prefix nvm)/nvm.sh
-echo "source $(brew --prefix nvm)/nvm.sh" >> ~/.bash_profile
+echo "source $(brew --prefix nvm)/nvm.sh" > ~/.bash_profile
+
+# node
+nvm install v6.3.1
+nvm alias default v6.3.1
+nvm use default
 
 # npm packages
-npm install -g npm node-gyp angular-cli babel-cli bower bower-check-updates cordova ember-cli firebase-tools grunt-cli gulp ionic jspm karma node-inspector nodemon npm-check-updates protractor rimraf supervisor typescript typings uglify-js watchman webpack webpack-dev-server yo generator-kyper-react
+npm install -g npm
+npm install -g cordova
+npm install -g ionic
+npm install -g angular-cli ember-cli firebase-tools
+npm install -g bower bower-check-updates npm-check-updates
+npm install -g babel-cli grunt-cli gulp jspm karma node-inspector nodemon protractor rimraf supervisor typescript typings uglify-js watchman webpack webpack-dev-server yo
 
-# install a node version
-nvm install v6.2.2d
-nvm alias default v6.2.2
-nvm use default
+# vm
+brew cask install virtualbox virtualbox-extension-pack vagrant vagrant-manager
+
+# android
+brew install android-sdk android-ndk
+brew cask install android-studio
 
 # optional git setup
 config.git(){
