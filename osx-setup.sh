@@ -20,7 +20,7 @@ brew cleanup && brew cask cleanup
 
 # dev
 brew install bash-completion git tig
-brew cask install emacs vim iterm2-beta sublime-text3 webstorm atom java
+brew cask install emacs vim iterm2-beta sublime-text webstorm atom java
 brew linkapps emacs
 
 # lib
