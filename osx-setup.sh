@@ -38,6 +38,7 @@ source ~/.bash_profile
 
 # node
 nvm install v6.3.1
+nvm use --delete-prefix v6.3.1
 nvm alias default v6.3.1
 nvm use default
 
