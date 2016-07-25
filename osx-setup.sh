@@ -32,8 +32,9 @@ brew cask install 1password dropbox google-chrome google-drive slack spotify sky
 
 # nvm
 brew install nvm
-source $(brew --prefix nvm)/nvm.sh
+echo 'export NVM_DIR="$HOME/.nvm"' > ~/.bash_profile
 echo "source $(brew --prefix nvm)/nvm.sh" > ~/.bash_profile
+source ~/.bash_profile
 
 # node
 nvm install v6.3.1
