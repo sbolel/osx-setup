@@ -28,7 +28,7 @@ brew install mysql ruby s3cmd wget
 brew install --with-mysql --with-cgi php55
 
 # apps
-brew cask install 1password dropbox google-chrome google-drive slack spotify skype imagemagick
+brew cask install 1password dropbox google-chrome google-drive slack spotify skype
 
 # nvm
 brew install nvm
