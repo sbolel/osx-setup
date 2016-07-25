@@ -18,16 +18,16 @@ brew tap caskroom/versions
 brew update && brew upgrade
 brew cleanup && brew cask cleanup
 
-# system
-brew install bash-completion mysql ruby s3cmd wget
+# dev
+brew install bash-completion git tig
+brew cask install emacs vim iterm2-beta sublime-text3 webstorm atom java
+brew linkapps emacs
+
+# lib
+brew install mysql ruby s3cmd wget
 brew install --with-mysql --with-cgi php55
 
-# development
-brew install emacs
-brew linkapps emacs
-brew cask install iterm2-beta sublime-text3 webstorm atom java
-
-# essentials
+# apps
 brew cask install 1password dropbox google-chrome google-drive google-hangouts slack spotify skype imagemagick
 
 # nvm
@@ -63,7 +63,7 @@ config.git(){
   read email
   git config --global user.name "${name}"
   git config --global user.email "${email}"
-  git config --global core.editor vim
+  git config --global core.editor emacs
   git config --global push.default current
 }
 
