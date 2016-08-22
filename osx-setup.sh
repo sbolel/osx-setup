@@ -16,16 +16,15 @@ brew tap caskroom/versions
 
 # update after tapping
 brew update && brew upgrade
-brew cleanup && brew cask cleanup
+
+# lib
+brew install mysql ruby s3cmd wget
+brew install --with-mysql --with-cgi php55
 
 # dev
 brew install bash-completion git tig
 brew cask install emacs vim iterm2-beta sublime-text webstorm atom java
 brew linkapps emacs
-
-# lib
-brew install mysql ruby s3cmd wget
-brew install --with-mysql --with-cgi php55
 
 # apps
 brew cask install 1password dropbox google-chrome google-drive slack spotify skype
@@ -37,18 +36,20 @@ echo "source $(brew --prefix nvm)/nvm.sh" > ~/.bash_profile
 source ~/.bash_profile
 
 # node
-nvm install v6.3.1
-nvm use --delete-prefix v6.3.1
-nvm alias default v6.3.1
+nvm install v6.4.0
+nvm alias default v6.4.0
 nvm use default
 
 # npm packages
-npm install -g npm
-npm install -g cordova
-npm install -g ionic
-npm install -g angular-cli ember-cli firebase-tools
+npm install -g npm jspm rimraf
+npm install -g cordova ionic
+npm install -g angular-cli firebase-tools
 npm install -g bower bower-check-updates npm-check-updates
-npm install -g babel-cli grunt-cli gulp jspm karma node-inspector nodemon protractor rimraf supervisor typescript typings uglify-js watchman webpack webpack-dev-server yo
+npm install -g typescript typings tsc tslint
+npm install -g babel-cli webpack webpack-dev-server
+npm install -g grunt-cli gulp jshint uglify-js yo
+npm install -g node-inspector nodemon supervisor watchman
+npm install -g protractor karma
 
 # vm
 brew cask install virtualbox virtualbox-extension-pack vagrant vagrant-manager
@@ -57,8 +58,13 @@ brew cask install virtualbox virtualbox-extension-pack vagrant vagrant-manager
 brew install android-sdk android-ndk
 brew cask install android-studio
 
+# update & clean
+brew update && brew upgrade
+brew cleanup && brew cask cleanup 
+
+
 # optional git setup
-config.git(){
+config_git(){
   echo "Enter git user.name: "
   read name
   echo "Enter git user.email: "
@@ -70,7 +76,7 @@ config.git(){
 }
 
 # optional osx setup
-config.speedup_osx(){
+speedup_osx(){
   # Speed up window tranisations
   defaults write NSGlobalDomain NSWindowResizeTime 0.01;
   # Speed up mission control transition (F3)
@@ -81,7 +87,3 @@ config.speedup_osx(){
   # Restart dock so effects can kick in.
   killall Dock;
 }
-
-# update & cleanup again
-brew update && brew upgrade
-brew cleanup && brew cask cleanup
