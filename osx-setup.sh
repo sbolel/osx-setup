@@ -87,3 +87,8 @@ speedup_osx(){
   # Restart dock so effects can kick in.
   killall Dock;
 }
+
+other(){
+  # symlink jsc
+  ln -s /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc /usr/local/bin
+}
