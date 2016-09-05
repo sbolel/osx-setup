@@ -27,7 +27,7 @@ brew cask install emacs vim iterm2-beta sublime-text webstorm atom java
 brew linkapps emacs
 
 # apps
-brew cask install 1password dropbox google-chrome google-drive slack spotify skype
+brew cask install 1password dropbox google-chrome google-drive polymail slack spotify skype
 
 # nvm
 brew install nvm
