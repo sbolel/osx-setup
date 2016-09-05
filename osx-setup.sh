@@ -36,8 +36,8 @@ echo "source $(brew --prefix nvm)/nvm.sh" > ~/.bash_profile
 source ~/.bash_profile
 
 # node
-nvm install v6.4.0
-nvm alias default v6.4.0
+nvm install v6.5.0
+nvm alias default v6.5.0
 nvm use default
 
 # npm packages
