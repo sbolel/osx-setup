@@ -58,6 +58,16 @@ brew cask install virtualbox virtualbox-extension-pack vagrant vagrant-manager
 brew install android-sdk android-ndk
 brew cask install android-studio
 
+# golang
+brew install go --cross-compile-common
+brew install hg bzr
+mkdir $HOME/.go
+echo 'export GOPATH=$HOME/.go' >> ~/.bash_profile
+echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bash_profile
+go get golang.org/x/tools/cmd/godoc
+go get golang.org/x/tools/cmd/vet
+go get golang.org/x/tools/cmd/vet
+
 # update & clean
 brew update && brew upgrade
 brew cleanup && brew cask cleanup 
