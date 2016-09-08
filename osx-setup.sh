@@ -18,7 +18,7 @@ brew tap caskroom/versions
 brew update && brew upgrade
 
 # lib
-brew install mysql ruby s3cmd wget
+brew install mysql ruby s3cmd wget docker
 brew install --with-mysql --with-cgi php55
 
 # dev
