@@ -14,20 +14,17 @@ brew tap homebrew/php
 brew tap caskroom/cask 
 brew tap caskroom/versions
 
-# update after tapping
+# update after tap
 brew update && brew upgrade
 
-# lib
-brew install mysql ruby s3cmd wget docker chromedriver
-brew install --with-mysql --with-cgi php55
-
 # dev
-brew install bash-completion git tig
-brew cask install emacs vim iterm2-beta sublime-text webstorm atom java
-brew linkapps emacs
+brew install git tig bash-completion ruby java mysql docker s3cmd wget chromedriver android-sdk android-ndk
 
 # apps
 brew cask install 1password dropbox google-chrome google-drive polymail slack spotify skype
+brew cask install virtualbox virtualbox-extension-pack vagrant vagrant-manager
+brew cask install emacs vim iterm2-beta atom sublime-text webstorm android-studio
+brew linkapps emacs
 
 # nvm
 brew install nvm
@@ -36,27 +33,24 @@ echo "source $(brew --prefix nvm)/nvm.sh" > ~/.bash_profile
 source ~/.bash_profile
 
 # node
-nvm install v6.5.0
-nvm alias default v6.5.0
+nvm install v6.9.0
+nvm alias default v6.9.0
 nvm use default
 
-# npm packages
-npm install -g npm jspm rimraf
-npm install -g cordova ionic
-npm install -g angular-cli firebase-tools
-npm install -g bower bower-check-updates npm-check-updates
+# npm
+npm install -g npm npm-check-updates
 npm install -g typescript typings tsc tslint
-npm install -g babel-cli webpack webpack-dev-server
-npm install -g grunt-cli gulp jshint uglify-js yo
-npm install -g node-inspector nodemon supervisor watchman
-npm install -g protractor karma
+npm install -g angular-cli babel-cli firebase-tools
+npm install -g webpack@^2.1.0-beta webpack-dev-server@^2.1.0-beta
+npm install -g eslint standard protractor karma karma-cli karma-webpack
+npm install -g crossenv dotenv npm-run-all node-inspector nodemon supervisor watchman
 
-# vm
-brew cask install virtualbox virtualbox-extension-pack vagrant vagrant-manager
+# npm - other
+npm install -g bower bower-check-updates gulp uglify-js yo cordova ionic
+npm install -g node-sass && npm rebuild node-sass
 
-# android
-brew install android-sdk android-ndk
-brew cask install android-studio
+# symlink jsc
+ln -s /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc /usr/local/bin
 
 # golang
 brew install go --cross-compile-common
@@ -71,7 +65,6 @@ go get golang.org/x/tools/cmd/vet
 # update & clean
 brew update && brew upgrade
 brew cleanup && brew cask cleanup 
-
 
 # optional git setup
 config_git(){
@@ -96,9 +89,4 @@ speedup_osx(){
   defaults write com.apple.dock springboard-hide-duration -float 0.1;
   # Restart dock so effects can kick in.
   killall Dock;
-}
-
-other(){
-  # symlink jsc
-  ln -s /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc /usr/local/bin
 }
