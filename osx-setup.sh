@@ -43,7 +43,7 @@ npm install -g typescript typings tsc tslint
 npm install -g angular-cli babel-cli firebase-tools
 npm install -g webpack@^2.1.0-beta webpack-dev-server@^2.1.0-beta
 npm install -g eslint standard protractor karma karma-cli karma-webpack
-npm install -g crossenv dotenv npm-run-all node-inspector nodemon supervisor watchman
+npm install -g cross-env dotenv npm-run-all node-inspector nodemon supervisor watchman
 
 # npm - other
 npm install -g bower bower-check-updates gulp uglify-js yo cordova ionic
