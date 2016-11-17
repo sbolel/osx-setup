@@ -40,7 +40,7 @@ nvm use default
 # npm
 npm install -g npm npm-check-updates
 npm install -g typescript typings tsc tslint tsun
-npm install -g angular-cli babel-cli firebase-tools
+npm install -g angular-cli aurelia-cli babel-cli firebase-tools
 npm install -g webpack@^2.1.0-beta webpack-dev-server@^2.1.0-beta
 npm install -g eslint standard protractor karma karma-cli karma-webpack
 npm install -g cross-env dotenv npm-run-all node-inspector nodemon supervisor watchman
