@@ -24,6 +24,7 @@ brew install git tig bash-completion ruby java mysql docker s3cmd wget chromedri
 brew cask install 1password dropbox google-chrome google-drive polymail slack spotify skype
 brew cask install virtualbox virtualbox-extension-pack vagrant vagrant-manager
 brew cask install emacs vim iterm2-beta atom sublime-text webstorm android-studio
+brew cask install logitech-unifying logitech-control-center
 brew linkapps emacs
 
 # nvm
@@ -38,15 +39,13 @@ nvm alias default v6.9.0
 nvm use default
 
 # npm
-npm install -g npm npm-check-updates
-npm install -g typescript typings tsc tslint tsun
+npm install -g npm npm-check-updates jspm
+npm install -g jspm gulp yo cordova ionic
+npm install -g typescript typings tslint tsun
 npm install -g angular-cli aurelia-cli babel-cli firebase-tools
-npm install -g webpack@^2.1.0-beta webpack-dev-server@^2.1.0-beta
+npm install -g webpack@^2.1.0-beta webpack-dev-server@^2.1.0-beta uglify-js
 npm install -g eslint standard protractor karma karma-cli karma-webpack
 npm install -g cross-env dotenv npm-run-all node-inspector nodemon supervisor watchman
-
-# npm - other
-npm install -g bower bower-check-updates gulp uglify-js yo cordova ionic
 npm install -g node-sass && npm rebuild node-sass
 
 # symlink jsc
