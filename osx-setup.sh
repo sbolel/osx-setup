@@ -23,7 +23,7 @@ brew install git tig bash-completion ruby java mysql docker s3cmd wget chromedri
 # apps
 brew cask install 1password dropbox google-chrome google-drive polymail slack spotify skype
 brew cask install virtualbox virtualbox-extension-pack vagrant vagrant-manager
-brew cask install emacs vim iterm2-beta atom sublime-text webstorm android-studio
+brew cask install emacs vim iterm2-beta atom sublime-text webstorm android-studio google-cloud-sdk
 brew cask install logitech-unifying logitech-control-center
 brew linkapps emacs
 
@@ -34,19 +34,20 @@ echo "source $(brew --prefix nvm)/nvm.sh" > ~/.bash_profile
 source ~/.bash_profile
 
 # node
-nvm install v6.9.0
-nvm alias default v6.9.0
+nvm install v6.9.1
+nvm alias default v6.9.1
 nvm use default
 
 # npm
-npm install -g npm npm-check-updates jspm
-npm install -g jspm gulp yo cordova ionic
-npm install -g typescript typings tslint tsun
-npm install -g angular-cli aurelia-cli babel-cli firebase-tools
-npm install -g webpack@^2.1.0-beta webpack-dev-server@^2.1.0-beta uglify-js
-npm install -g eslint standard protractor karma karma-cli karma-webpack
-npm install -g cross-env dotenv npm-run-all node-inspector nodemon supervisor watchman
-npm install -g node-sass && npm rebuild node-sass
+npm install -g npm jspm yarn
+npm install -g node-gyp node-pre-gyp v8-profiler
+npm install -g npm-check npm-check-updates npm-run-all
+npm install -g typescript@^2.1.0 typings tslint
+npm install -g webpack@^2.1.0-beta webpack-dev-server@^2.1.0-beta
+npm install -g babel-cli angular-cli aurelia-cli gulp-cli firebase-tools
+npm install -g eslint standard karma karma-cli karma-webpack protractor phantomjs
+npm install -g electron cordova cordova-browser ios-deploy ios-sim ionic
+npm install -g node-inspector nodemon supervisor watchman webdriver-manager
 
 # symlink jsc
 ln -s /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc /usr/local/bin
