@@ -1,6 +1,6 @@
 # OS X Setup
 
-- [osx-setup.sh](osx-setup.sh): shell script to setup a fresh OSX installation (based on [Mike Rogers' OSX setup](http://mikerogers.io/2014/05/20/my-OSX-setup.html).
+- [osx-setup.sh](osx-setup.sh): shell script to setup a fresh OSX installation (based on [Mike Rogers' OSX setup](http://mikerogers.io/2014/05/20/my-OSX-setup.html)).
 - [.bash_profile](.bash_profile): my .bash_profile
 
 ## Overview
