@@ -1,17 +1,13 @@
-# OSX Setup Script
+# OS X Setup
 
-This is a shell script to install programs for a fresh OSX installation.
-
-Based on [Mike Rogers' OSX setup](http://mikerogers.io/2014/05/20/my-OSX-setup.html)
+- [osx-setup.sh](osx-setup.sh): shell script to setup a fresh OSX installation (based on [Mike Rogers' OSX setup](http://mikerogers.io/2014/05/20/my-OSX-setup.html).
+- [.bash_profile](.bash_profile): my .bash_profile
 
 ## Overview
 
-This script is experimental. It has the following functionality:
-## Homebrew and Homebrew Cask
-
-* Install [Homebrew](http://brew.sh/) & [Homebrew Cask](http://caskroom.io/)
-* Install brew formulae and cask bits
+* Installs [Homebrew](http://brew.sh/) & [Homebrew Cask](http://caskroom.io/)
+* Installs brew formulae and cask bits
     - Git and supporting apps (and configure git)
     - Cask bits
     - Misc Brew formulae
-* Install Node and global npm modules
+* Installs Node and global npm modules
