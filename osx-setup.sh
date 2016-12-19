@@ -18,7 +18,9 @@ brew tap caskroom/versions
 brew update && brew upgrade
 
 # dev
-brew install git tig bash-completion ruby java mysql docker s3cmd wget chromedriver android-sdk android-ndk
+brew install git tig bash-completion wget
+brew install docker java mysql ruby s3cmd yarn
+brew install android-sdk android-ndk chromedriver
 
 # apps
 brew cask install 1password dropbox google-chrome google-drive polymail slack spotify skype
