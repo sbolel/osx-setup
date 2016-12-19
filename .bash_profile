@@ -22,7 +22,7 @@ alias t="tig"
 
 # install npm global packages
 function npm-g {
-  npm install -g npm jspm yarn
+  npm install -g npm jspm
   npm install -g node-gyp node-pre-gyp v8-profiler
   npm install -g npm-check npm-check-updates npm-run-all
   npm install -g typescript@^2.1.0 typings tslint
