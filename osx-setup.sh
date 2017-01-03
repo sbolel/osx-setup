@@ -3,70 +3,101 @@
 # NOTE: Before running this script, make sure that XCode commandline tools are installed and its terms/conditions accepted.
 # xcode-select --install
 
-# download and install homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+################
+# installation #
+################
 
-# taps
-brew tap homebrew/dupes 
-brew tap homebrew/services 
-brew tap homebrew/versions 
-brew tap homebrew/php 
-brew tap caskroom/cask 
-brew tap caskroom/versions
+install_brew
+install_apps
+install_nvm
+install_node
+install_npm_globals
+refresh_brew
+symlink_jsc
+config_git
 
-# update after tap
-brew update && brew upgrade
+#############
+# functions #
+#############
 
-# dev
-brew install git tig bash-completion wget
-brew install docker java mysql ruby s3cmd yarn
-brew install android-sdk android-ndk chromedriver
+install_brew(){
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  tap_brew      # update taps
+  refresh_brew  # update, cleanup
+}
 
-# apps
-brew cask install 1password dropbox google-chrome google-drive polymail slack spotify skype
-brew cask install virtualbox virtualbox-extension-pack vagrant vagrant-manager
-brew cask install emacs vim iterm2-beta atom sublime-text webstorm android-studio google-cloud-sdk
-brew cask install logitech-unifying logitech-control-center
-brew linkapps emacs
+refresh_brew(){
+  brew update && brew upgrade
+  brew cleanup && brew cask cleanup
+}
 
-# nvm
-brew install nvm
-echo 'export NVM_DIR="$HOME/.nvm"' > ~/.bash_profile
-echo "source $(brew --prefix nvm)/nvm.sh" > ~/.bash_profile
-source ~/.bash_profile
+tap_brew(){
+  brew tap homebrew/dupes 
+  brew tap homebrew/services 
+  brew tap homebrew/versions 
+  brew tap homebrew/php 
+  brew tap caskroom/cask 
+  brew tap caskroom/versions
+}
 
-# node
-nvm install v6.9.1
-nvm alias default v6.9.1
-nvm use default
+install_apps(){
+  # apps
+  brew cask install 1password dropbox google-chrome google-drive  # core apps
+  brew cask install polymail slack spotify skype                  # communication
+  brew cask install logitech-unifying logitech-control-center     # logitech
+  # git, editors
+  brew install git tig bash-completion                         # git
+  brew install vim emacs && brew linkapps emacs                # sys editors
+  brew cask install iterm2-beta atom sublime-text webstorm     # app editors
+  # dev 
+  brew install chromedriver docker mysql ruby s3cmd wget yarn  # core dev
+  brew cask install virtualbox virtualbox-extension-pack       # vm apps
+  brew cask install google-cloud-sdk
+}
 
-# npm
-npm install -g npm jspm yarn
-npm install -g node-gyp node-pre-gyp v8-profiler
-npm install -g npm-check npm-check-updates npm-run-all
-npm install -g typescript@^2.1.0 typings tslint
-npm install -g webpack@^2.1.0-beta webpack-dev-server@^2.1.0-beta
-npm install -g babel-cli angular-cli aurelia-cli gulp-cli firebase-tools
-npm install -g eslint standard karma karma-cli karma-webpack protractor phantomjs
-npm install -g electron cordova cordova-browser ios-deploy ios-sim ionic
-npm install -g node-inspector nodemon supervisor watchman webdriver-manager
+install_nvm(){
+  brew install nvm
+  echo 'export NVM_DIR="$HOME/.nvm"' > ~/.bash_profile
+  echo "source $(brew --prefix nvm)/nvm.sh" > ~/.bash_profile
+  source ~/.bash_profile
+}
 
-# symlink jsc
-ln -s /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc /usr/local/bin
+install_node(){
+  nvm install v7.3.0
+  nvm alias default v7.3.0
+  nvm use default
+}
 
-# golang
-brew install go --cross-compile-common
-brew install hg bzr
-mkdir $HOME/.go
-echo 'export GOPATH=$HOME/.go' >> ~/.bash_profile
-echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bash_profile
-go get golang.org/x/tools/cmd/godoc
-go get golang.org/x/tools/cmd/vet
-go get golang.org/x/tools/cmd/vet
+install_npm_globals(){
+  npm install -g npm
+  npm install -g node-pre-gyp node-gyp node-sass
+  npm install -g npm-check npm-check-updates npm-run-all
+  npm install -g node-inspector nodemon supervisor watchman webdriver-manager
+  npm install -g typescript@>=2.1.4 typings webpack@>=2.2.0-rc.3 webpack-dev-server@>=2.2.0-rc.0
+  npm install -g babel-cli angular-cli aurelia-cli gulp-cli firebase-tools 
+  npm install -g eslint standard tslint karma karma-cli karma-webpack protractor phantomjs
+  npm install -g electron cordova cordova-browser ios-deploy ios-sim ionic
+}
 
-# update & clean
-brew update && brew upgrade
-brew cleanup && brew cask cleanup 
+# optional
+install_android(){
+  brew install android-sdk android-ndk
+  brew cask install android-studio
+}
+
+# optional
+install_golang(){
+  brew install go hg bzr
+  mkdir $HOME/.go
+  echo 'export GOPATH=$HOME/.go' >> ~/.bash_profile
+  echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bash_profile
+  go get golang.org/x/tools/cmd/godoc
+  go get golang.org/x/tools/cmd/vet
+}
+
+symlink_jsc() {
+  ln -s /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc /usr/local/bin 
+}
 
 # optional git setup
 config_git(){
