@@ -41,17 +41,17 @@ tap_brew(){
 }
 
 install_apps(){
+  # dev
+  brew install wget gpg2 git tig bash-completion
+  brew install vim emacs && brew linkapps emacs
+  brew install docker google-cloud-sdk mongodb mongoose mysql ruby s3cmd yarn
+  brew cask install iterm2-beta atom sublime-text webstorm # editors
+  brew cask install virtualbox virtualbox-extension-pack   # vm
   # apps
   brew cask install 1password dropbox spotify
   brew cask install google-chrome google-drive
   brew cask install polymail slack skype
   brew cask install logitech-control-center logitech-unifying
-  # dev
-  brew install git tig bash-completion    # git
-  brew install vim emacs && brew linkapps emacs
-  brew install docker google-cloud-sdk mongodb mongoose mysql ruby s3cmd wget yarn
-  brew cask install iterm2-beta atom sublime-text webstorm # editors
-  brew cask install virtualbox virtualbox-extension-pack   # vm
 }
 
 install_nvm(){
