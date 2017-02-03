@@ -50,7 +50,7 @@ install_apps(){
   # apps
   brew cask install 1password dropbox spotify
   brew cask install google-chrome google-drive
-  brew cask install polymail slack skype
+  brew cask install gitter polymail slack skype
   brew cask install logitech-control-center logitech-unifying
 }
 
