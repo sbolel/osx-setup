@@ -20,19 +20,6 @@ alias t="tig"
 
 # =============================================================================
 
-# install npm global packages
-function npm-g {
-  npm install -g npm jspm
-  npm install -g node-gyp node-pre-gyp v8-profiler
-  npm install -g npm-check npm-check-updates npm-run-all
-  npm install -g typescript@^2.1.0 typings tslint
-  npm install -g webpack@^2.1.0-beta webpack-dev-server@^2.1.0-beta
-  npm install -g babel-cli angular-cli aurelia-cli gulp-cli firebase-tools
-  npm install -g eslint standard karma karma-cli karma-webpack protractor phantomjs
-  npm install -g electron cordova cordova-browser ios-deploy ios-sim ionic
-  npm install -g node-inspector nodemon supervisor watchman webdriver-manager
-}
-
 # update brew
 function brew-head {
   brew update
@@ -40,12 +27,48 @@ function brew-head {
   brew cleanup
 }
 
-# show/hide hidden files in finder
+# update npm global packages
+function npm-head {
+  npm install -g npm
+  npm install -g npm-check npm-check-updates npm-run-all
+  npm install -g typescript@next webpack@^2.2.1 webpack-dev-server@^2.2.1
+  npm install -g @angular/cli aurelia-cli babel-cli gulp-cli firebase-tools
+  npm install -g cordova electron ionic cordova-browser ios-deploy ios-sim node-sass
+  npm install -g eslint tslint standard node-inspector nodemon supervisor watchman
+}
+
+# toggle show/hide hidden files
 function hidden {
   if [[ $# == 0 || $1 == "show" ]]; then
     defaults write com.apple.finder AppleShowAllFiles YES
     killall Finder && printf "Hidden files shown!"
   fi
+}
+
+# replace authors in git history
+function git-rewrite-authors {
+  echo "Enter OLD_EMAIL to replace: "
+  read oldEmail
+  echo "Enter CORRECT_NAME: "
+  read correctName
+  echo "Enter CORRECT_EMAIL:"
+  read correctEmail
+  cp ./.git ./.git.backup
+  git filter-branch --env-filter '
+  OLD_EMAIL="your-old-email@example.com"
+  CORRECT_NAME="Your Correct Name"
+  CORRECT_EMAIL="your-correct-email@example.com"
+  if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
+  then
+      export GIT_COMMITTER_NAME="$CORRECT_NAME"
+      export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+  fi
+  if [ "$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]
+  then
+      export GIT_AUTHOR_NAME="$CORRECT_NAME"
+      export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+  fi
+  ' --tag-name-filter cat -- --branches --tags
 }
 
 # =============================================================================
@@ -114,28 +137,14 @@ export PS1
 
 # =============================================================================
 
-# git bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
+export PATH=~/homebrew/sbin:~/homebrew/bin:$PATH
 
-# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 . $(brew --prefix nvm)/nvm.sh
 
-# node
-export PATH=$PATH:$HOME/.nvm/versions/node/v6.9.1/bin/node
+export PATH=$PATH:$HOME/.nvm/versions/node/v6.10.0/bin/node
 
-# rvm
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# golang
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
-
-# =========================================================
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
