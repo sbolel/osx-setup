@@ -62,8 +62,8 @@ install_nvm(){
 }
 
 install_node(){
-  nvm install v6.9.5
-  nvm alias default v6.9.5
+  nvm install 6.10.0
+  nvm alias default 6.10.0
   nvm use default
 }
 
