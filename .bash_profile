@@ -39,10 +39,17 @@ function npm-head {
 
 # toggle show/hide hidden files
 function hidden {
-  if [[ $# == 0 || $1 == "show" ]]; then
-    defaults write com.apple.finder AppleShowAllFiles YES
-    killall Finder && printf "Hidden files shown!"
+  if [[ $# == 0 ]]; then
+    local VALUE=`defaults read com.apple.finder AppleShowAllFiles`
   fi
+  if [[ $VALUE == "NO" || $1 == "show" ]]; then
+    defaults write com.apple.finder AppleShowAllFiles YES
+    printf "Hidden files shown!"
+  elif [[ $VALUE == "YES" || $1 == "hide" ]]; then
+    defaults write com.apple.finder AppleShowAllFiles NO
+    printf "Hidden files hidden!"
+  fi
+  killall Finder
 }
 
 # replace authors in git history
