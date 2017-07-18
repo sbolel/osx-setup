@@ -2,11 +2,14 @@
 
 # general
 alias dev="cd ~/dev"
+alias pa="ps -A"
 alias profile="subl ~/.bash_profile"
+alias src="source ~/.bash_profile && clear"
+alias KA="killall"
 
 # ls
-alias ls='ls -GFh'
 alias la="ls -GFhal"
+alias ls="ls -GFh"
 
 # git
 alias ga="git add ."
@@ -17,6 +20,11 @@ alias gco="git checkout"
 alias gex="git reset"
 alias gs="git status"
 alias t="tig"
+
+# yarn
+alias yb="yarn build"
+alias yd="yarn develop"
+alias yr="yarn rebuild"
 
 # =============================================================================
 
@@ -144,14 +152,14 @@ export PS1
 
 # =============================================================================
 
-export PATH=~/homebrew/sbin:~/homebrew/bin:$PATH
+# nvm
+export NVM_DIR="$HOME/.nvm" && . "/usr/local/opt/nvm/nvm.sh"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-. $(brew --prefix nvm)/nvm.sh
+# yarn
+export PATH="$PATH:`yarn global bin`"
 
-export PATH=$PATH:$HOME/.nvm/versions/node/v6.10.0/bin/node
+# npm
+export PATH="$PATH:`npm -g bin`"
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
+# git bash completion
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
