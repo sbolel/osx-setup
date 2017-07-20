@@ -58,6 +58,7 @@ brew_install() {
     'readline'
     'ruby'
     's3cmd'
+    'speedtest-cli'
     'sqlite'
     'tig'
     'vim'
