@@ -113,11 +113,19 @@ setup_git(){
 }
 
 speedup_osx(){
-  defaults write NSGlobalDomain NSWindowResizeTime 0.01;
-  defaults write com.apple.dock expose-animation-duration -float 0.1;
-  defaults write com.apple.dock springboard-show-duration -float 0.1;
-  defaults write com.apple.dock springboard-hide-duration -float 0.1;
-  killall Dock;
+  defaults write NSGlobalDomain NSWindowResizeTime 0.01
+  defaults write com.apple.dock expose-animation-duration -float 0.1
+  defaults write com.apple.dock springboard-show-duration -float 0.1
+  defaults write com.apple.dock springboard-hide-duration -float 0.1
+  # Don’t animate opening applications from the Dock
+  defaults write com.apple.dock launchanim -bool false
+  # Remove the auto-hiding Dock delay
+  defaults write com.apple.dock autohide-delay -float 0
+  # Remove the animation when hiding/showing the Dock
+  defaults write com.apple.dock autohide-time-modifier -float 0
+  # Increase window resize speed for Cocoa applications
+  defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+  killall Dock && killall Finder
 }
 
 symlink_jsc() {
