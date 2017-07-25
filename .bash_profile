@@ -2,7 +2,7 @@
 
 # general
 alias dev="cd ~/dev"
-alias KA="killall"
+alias ka="killall"
 alias pa="ps -A"
 alias profile="subl ~/.bash_profile"
 alias src="source ~/.bash_profile && clear"
@@ -14,12 +14,16 @@ alias ls="ls -GFh"
 # git
 alias ga="git add ."
 alias gb="git branch -v"
+complete -F _git_branch gb
 alias gc="git commit -m"
 alias gca="git commit --amend -m"
-alias gco="git checkout"
 alias gex="git reset"
+alias gg="git checkout"
+complete -F _git_checkout gg
 alias gs="git status"
+alias gr="git remote -v"
 alias t="tig"
+alias gsl="git stash list"
 
 # yarn
 alias yb="yarn build"
@@ -30,8 +34,11 @@ alias yr="yarn rebuild"
 
 # update brew
 function brew-head {
-  brew update && brew upgrade
-  brew cleanup && brew cask cleanup
+  brew update
+  brew upgrade
+  brew prune
+  brew cleanup
+  brew cask cleanup
 }
 
 # toggle show/hide hidden files
@@ -47,6 +54,14 @@ function hidden {
     printf "Hidden files hidden!"
   fi
   killall Finder
+}
+
+# open the git remote in browser
+function git_browse {
+  local REMOTE=`git remote -v | ggrep -oP -m 1 "(github.com:.+) "`
+  local REMOTE2=`echo ${REMOTE/\:/\/}`
+  local REMOTE3=`echo ${REMOTE2/\.git/}`
+  open "https://$REMOTE3"
 }
 
 # replace authors in git history
@@ -104,6 +119,7 @@ function git_branch {
   local git_status="$(git status 2> /dev/null)"
   local on_branch="On branch ([^${IFS}]*)"
   local on_commit="HEAD detached at ([^${IFS}]*)"
+
   if [[ $git_status =~ $on_branch ]]; then
     local branch=${BASH_REMATCH[1]}
     echo "($branch)"
