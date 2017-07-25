@@ -34,8 +34,11 @@ brew_install() {
   # Install Kegs
   local kegs=(
     'bash-completion'
+    'brew-cask-completion'
+    'calc'
     'direnv'
     'docker'
+    'dockutil'
     'emacs'
     'gdbm'
     'gettext'
@@ -46,11 +49,14 @@ brew_install() {
     'go'
     'google-cloud-sdk'
     'gpg2'
+    'grep'
     'hub'
     'mongodb'
     'mongoose'
     'mysql'
+    'nettle'
     'nvm'
+    'open-completion'
     'openssl'
     'openssl@1.1'
     'perl'
@@ -60,8 +66,12 @@ brew_install() {
     's3cmd'
     'speedtest-cli'
     'sqlite'
+    'the_silver_searcher'
     'tig'
+    'trash'
+    'tree'
     'vim'
+    'watch'
     'wget'
     'yarn'
   ); for i in ${kegs[@]}; do brew install ${i}; done
@@ -70,6 +80,7 @@ brew_install() {
   local casks=(
     'adobe-acrobat-reader'
     'atom'
+    'bettertouchtool'
     'ccleaner'
     'cloudapp'
     'divvy'
@@ -80,7 +91,7 @@ brew_install() {
     # 'google-drive'
     'imageoptim'
     'iterm2-beta'
-    'polymail'
+#     'polymail'
     'postman'
     'sketch'
     'skype'
@@ -92,12 +103,13 @@ brew_install() {
     'sublime-text'
     'twitch'
     'unity'
+    'visual-studio-code'
   ); for i in ${casks[@]}; do brew cask install ${i}; done
 }
 
 install_node(){
-  nvm install 8.1.2
-  nvm alias default 8.1.2
+  nvm install 8.2.1
+  nvm alias default 8.2.1
   nvm use default
 }
 
