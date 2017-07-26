@@ -29,6 +29,7 @@ alias gsl="git stash list"
 alias yb="yarn build"
 alias yd="yarn develop"
 alias yr="yarn rebuild"
+alias nls="npm ls --depth=0"
 
 # =============================================================================
 
@@ -88,6 +89,10 @@ function git-rewrite-authors {
       export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
   fi
   ' --tag-name-filter cat -- --branches --tags
+}
+
+function gen-pw {
+  date +%s | shasum5.18 | base64 | head -c 32 | pbcopy
 }
 
 # =============================================================================
