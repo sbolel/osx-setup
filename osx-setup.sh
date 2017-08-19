@@ -3,14 +3,6 @@
 # NOTE: Before running this script, make sure that XCode commandline tools are installed and its terms/conditions accepted.
 # xcode-select --install
 
-# Main Installation Steps
-brew_install
-brew_get_head
-install_node
-symlink_jsc
-setup_git
-speedup_osx
-
 brew_get_head() {
   brew update && brew upgrade
   brew cleanup && brew cask cleanup
@@ -148,3 +140,13 @@ speedup_osx(){
 symlink_jsc() {
   ln -s /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc /usr/local/bin
 }
+
+#############################
+#  Main Installation Steps  #
+#############################
+brew_install
+brew_get_head
+install_node
+symlink_jsc
+setup_git
+speedup_osx
