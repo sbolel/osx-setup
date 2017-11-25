@@ -4,8 +4,11 @@
 # xcode-select --install
 
 brew_get_head() {
-  brew update && brew upgrade
-  brew cleanup && brew cask cleanup
+  brew update
+  brew upgrade
+  brew prune
+  brew cleanup
+  brew cask cleanup
 }
 
 brew_install() {
@@ -14,8 +17,8 @@ brew_install() {
 
   # Tap sources
   local taps=(
-    'homebrew/services'
     'homebrew/php'
+    'homebrew/services'
     'caskroom/cask'
     'caskroom/versions'
   ); for i in ${taps[@]}; do brew tap ${i}; done
@@ -71,28 +74,23 @@ brew_install() {
     'tree'
     'vim'
     'watch'
+    'watchman'
     'wget'
     'yarn'
   ); for i in ${kegs[@]}; do brew install ${i}; done
 
   # Install Casks
   local casks=(
-    'adobe-acrobat-reader'
     'atom'
-    'bettertouchtool'
     'ccleaner'
-    'cloudapp'
     'dropbox'
     'gimp'
-    'gitter'
     'google-chrome'
     'google-drive'
     'imageoptim'
     'iterm2-beta'
     'postman'
     'sketch'
-    'skype'
-    'skype-for-business'
     'slack'
     'spectacle'
     'spotify'
@@ -100,14 +98,38 @@ brew_install() {
     'sublime-text'
     'twitch'
     'unity'
-    'visual-studio-code'
   ); for i in ${casks[@]}; do brew cask install ${i}; done
 }
 
 install_node(){
-  nvm install 8.2.1
-  nvm alias default 8.2.1
+  nvm install 9.2.0
+  nvm alias default 9.2.0
   nvm use default
+  npm i -g npm
+  local npms=(
+    'create-react-app'
+    'editorconfig'
+    'eslint'
+    'gulp-cli'
+    'jscodeshift'
+    'npm-check'
+    'npm-check-updates'
+    'nodemon'
+    'serve'
+    'standard'
+  ); for i in ${npms[@]}; do yarn add global ${i}; done
+}
+
+setup_atom(){
+  local apms=(
+    'atom-beautify'
+    'calc'
+    'language-babel'
+    'nuclide'
+    'set-syntax'
+    'sort-lines'
+    'tinytimer'
+  ); for i in ${apms[@]}; do apm install ${i}; done
 }
 
 setup_git(){
@@ -146,7 +168,8 @@ symlink_jsc() {
 #############################
 brew_install
 brew_get_head
+setup_atom
+setup_git
 install_node
 symlink_jsc
-setup_git
 speedup_osx
