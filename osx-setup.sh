@@ -82,7 +82,9 @@ brew_install() {
   # Install Casks
   local casks=(
     'atom'
+    'brave'
     'ccleaner'
+    'firefox'
     'dropbox'
     'gimp'
     'google-chrome'
