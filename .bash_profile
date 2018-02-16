@@ -1,29 +1,29 @@
 #!/usr/bin/env bash
 
-# general
-alias dev="cd ~/dev"
+# misc
 alias ka="killall"
 alias pa="ps -A"
-alias profile="subl ~/.bash_profile"
-alias src="source ~/.bash_profile && clear"
-
-# ls
 alias la="ls -GFhal"
 alias ls="ls -GFh"
+alias profile="subl $HOME/.bash_profile"
+alias src="source $HOME/.bash_profile && clear"
+alias brew-head="brew update; brew upgrade; brew prune; brew cleanup; brew cask cleanup"
+alias now="date \"+DATE: %Y%m%d%nTIME: %H:%M:%S\""
 
 # git
 alias ga="git add ."
 alias gb="git branch -v"
-complete -F _git_branch gb
 alias gc="git commit -m"
 alias gca="git commit --amend -m"
 alias gex="git reset"
-alias gg="git checkout"
-complete -F _git_checkout gg
+alias gco="git checkout"
+alias gp="git pull"
 alias gs="git status"
 alias gr="git remote -v"
 alias t="tig"
 alias gsl="git stash list"
+alias gh="github"
+alias master="git checkout master"
 
 # yarn
 alias yb="yarn build"
