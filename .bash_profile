@@ -149,14 +149,13 @@ function git_color {
 }
 
 # bash prompt
-PS1="\n"
-PS1+="\[$COLOR_LIGHT_RED\]\# "
-PS1+="\[$COLOR_RED\]\t"
-PS1+="\[$COLOR_LIGHT_GREEN\] \w"
-PS1+="\[\$(git_color)\] "
-PS1+="\$(git_branch) "
-PS1+="\n"
-PS1+="\[$COLOR_LIGHT_GREEN\]\$ \[$COLOR_RESET\]"
+PS1="\n "
+PS1+="\[$COLOR_RED_LIGHT\]\\$ "
+PS1+="\[$COLOR_CYAN_LIGHT\]\w "
+PS1+="\[\$(git_color)\]\$(git_branch)"
+PS1+="\n "
+PS1+="\[$COLOR_GREEN_LIGHT\]> "
+PS1+="\[$COLOR_WHITE_BOLD\]"
 export PS1
 
 # =============================================================================
