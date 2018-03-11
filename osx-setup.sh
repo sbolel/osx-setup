@@ -4,8 +4,7 @@
 # xcode-select --install
 
 brew_get_head() {
-  brew update
-  brew upgrade
+  brew update && brew upgrade
   brew prune
   brew cleanup
   brew cask cleanup
@@ -28,7 +27,6 @@ brew_install() {
 
   # Install Kegs
   local kegs=(
-    'angular-cli'
     'aws-cli'
     'bash-completion'
     'brew-cask-completion'
@@ -36,6 +34,10 @@ brew_install() {
     'curl'
     'direnv'
     'docker'
+    'docker-cloud'
+    'docker-compose'
+    'docker-machine'
+    'docker-swarm'
     'dockutil'
     'emacs'
     'ffmpeg'
@@ -91,9 +93,9 @@ brew_install() {
     'atom'
     'brave'
     'ccleaner'
+    'docker'
     'firefox'
     'dropbox'
-    'gimp'
     'google-chrome'
     'google-drive'
     'imageoptim'
