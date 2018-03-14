@@ -2,7 +2,7 @@
 
 ## Contents
 
-- [osx-setup.sh](osx-setup.sh): shell script to setup a fresh OSX installation (based on [Mike Rogers' OSX setup](http://mikerogers.io/2014/05/20/my-OSX-setup.html)).
+- [osx-setup.sh](osx-setup.sh): shell script to setup a fresh OSX installation (based on [Mike Rogers' OSX setup](http://mikerogers.io/2014/05/20/my-osx-setup.html)).
 - [osx-security.sh](osx-security.sh): script to tighten security and privacy (from [drduh/macOS-Security-and-Privacy-Guide](https://github.com/drduh/macOS-Security-and-Privacy-Guide))
 - [.bash_profile](.bash_profile): my .bash_profile
 
