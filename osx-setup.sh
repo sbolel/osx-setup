@@ -150,7 +150,7 @@ setup_git(){
   read email
   git config --global user.name "${name}"
   git config --global user.email "${email}"
-  git config --global core.editor emacs
+  git config --global core.editor vim
   git config --global push.default current
 }
 
