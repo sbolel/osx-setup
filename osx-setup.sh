@@ -116,7 +116,6 @@ install_node(){
   nvm install --lts --latest-npm
   local LTS_VERSION="$(nvm ls lts/* | grep -oE '(\d+\.\d+\.\d+)')"
   nvm alias default $LTS_VERSION && nvm use default
-  nvm use default
   local npms=(
     'create-react-app'
     'editorconfig'
