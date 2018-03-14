@@ -113,10 +113,10 @@ brew_install() {
 }
 
 install_node(){
-  nvm install 9.2.0
-  nvm alias default 9.2.0
+  nvm install --lts --latest-npm
+  local LTS_VERSION="$(nvm ls lts/* | grep -oE '(\d+\.\d+\.\d+)')"
+  nvm alias default $LTS_VERSION && nvm use default
   nvm use default
-  npm i -g npm
   local npms=(
     'create-react-app'
     'editorconfig'
