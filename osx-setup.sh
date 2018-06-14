@@ -146,13 +146,32 @@ install_node(){
 
 setup_atom(){
   local apms=(
+    'aligner'
+    'aligner-javascript'
     'atom-beautify'
+    'busy-signal'
     'calc'
+    'copy-filename'
+    'editorconfig'
+    'flow-ide'
+    'hyperclick'
+    'ide-flowtype'
+    'intentions'
     'language-babel'
+    'linter'
+    'linter-eslint'
+    'linter-flow'
+    'linter-ui-default'
+    'minimap'
     'nuclide'
+    'nuclide'
+    'react'
+    'riot'
     'set-syntax'
     'sort-lines'
+    'textmate-espresso-libre-syntax'
     'tinytimer'
+    'todo-show'
   ); for i in ${apms[@]}; do apm install ${i}; done
 }
 
