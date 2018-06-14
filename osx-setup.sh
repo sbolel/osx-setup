@@ -138,12 +138,10 @@ install_node(){
     'eslint'
     'gulp-cli'
     'jscodeshift'
-    'npm-check'
-    'npm-check-updates'
     'nodemon'
     'serve'
     'standard'
-  ); for i in ${npms[@]}; do yarn add global ${i}; done
+  ); for i in ${npms[@]}; do yarn global add ${i}; done
 }
 
 setup_atom(){
