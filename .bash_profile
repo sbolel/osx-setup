@@ -1,23 +1,17 @@
 #!/usr/bin/env bash
 
-# sys
 alias ls="ls -GFh"
 alias la="ls -GFhal"
-alias clc="clear"
+alias ts="date \"+%Y-%m-%d\""
+alias now="date \"+DATE: %Y%m%d%nTIME: %H:%M:%S\""
 alias ka="killall"
 alias pa="ps -A"
 alias profile="vim $HOME/.bash_profile"
-alias src="source $HOME/.bash_profile && clear"
-alias brew-head="brew update && brew upgrade && brew prune && brew cleanup && brew cask cleanup"
+alias reset="source $HOME/.bash_profile && reset"
+alias v="nvim"
+alias vi="nvim"
 alias vim="nvim"
-alias v="vim"
 
-# date/time
-alias now="date \"+DATE: %Y%m%d%nTIME: %H:%M:%S\""
-alias timestamp="date \"+%Y-%m-%d\""
-alias ts="timestamp"
-
-# git
 alias ga="git add ."
 alias gb="git branch -v"
 alias gc="git commit -m"
@@ -28,15 +22,9 @@ alias gr="git remote -v"
 alias gs="git status"
 alias t="tig"
 
-# yarn
 alias y="yarn"
 alias yb="yarn build"
 alias yd="yarn develop"
-alias yo="yarn outdated"
-alias yr="yarn rebuild"
-
-# ~/.bin aliases
-alias gcs="git checkout -b $(timestamp)/$1/$2"
 
 # =============================================================================
 
@@ -47,9 +35,19 @@ export HISTCONTROL=ignoredups
 # =============================================================================
 
 dev() {
-  if [[ $# == 0 ]]; then cd ~/dev;
-  else cd ~/dev/*$1*;
+  if   [[ $# == 0 ]]; then cd ~/dev
+  elif [[ $1 == "notes" || $1 == "docs" ]]; then cd ~/dev/notes
+  else cd ~/dev/*$1*
   fi
+}
+
+brew-head() {
+  brew update
+  brew upgrade
+  brew cask upgrade
+  brew prune
+  brew cleanup
+  brew cask cleanup
 }
 
 # =============================================================================
@@ -74,6 +72,9 @@ git_branch_color() {
 
 # =============================================================================
 
+export CLICOLOR=1
+export LSCOLORS='GxFxCxDxBxegedabagaced'
+
 COLOR_RED="\033[0;31m"      ; COLOR_RED_LIGHT="\033[1;31m"
 COLOR_GREEN="\033[0;32m"    ; COLOR_GREEN_LIGHT="\033[1;32m"
 COLOR_BLUE="\033[0;34m"     ; COLOR_BLUE_LIGHT="\033[1;34m"
@@ -92,24 +93,17 @@ PS1+="\[$COLOR_GREEN_LIGHT\]\\$ "
 PS1+="\[$COLOR_RESET\]"
 export PS1
 
-export CLICOLOR=1
-export LSCOLORS='GxFxCxDxBxegedabagaced'
-
 # =============================================================================
 
-# directories
 export NVM_DIR="${HOME}/.nvm"
 
-# sources
 [[ -f "${HOME}/.bash_env" ]] && source "${HOME}/.bash_env"
+# [[ -f "${HOME}/.bin/.symlink" ]] && . "${HOME}/.bin/.symlink"
+# [[ -f "${HOME}/.bin/.iterm2_shell_integration.bash" ]] && . "${HOME}/.bin/.iterm2_shell_integration.bash"
 [[ -f "/usr/local/etc/bash_completion" ]] && . "/usr/local/etc/bash_completion"
 [[ -f "/usr/local/opt/nvm/nvm.sh" ]] && . "/usr/local/opt/nvm/nvm.sh"
 
-# path
 export PATH=~/homebrew/sbin:~/homebrew/bin:$PATH
 export PATH=$PATH:"$(nvm_version_dir)/$(nvm_version)/bin"
 
-# init ssh
 ssh-add -l | [[ "$(grep -oEi '(id_rsa)')" != 'id_rsa' ]] && ssh-add -K
-
-# =============================================================================
