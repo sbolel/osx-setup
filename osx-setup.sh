@@ -4,7 +4,9 @@
 # xcode-select --install
 
 brew_get_head() {
-  brew update && brew upgrade
+  brew update
+  brew upgrade
+  brew cask upgrade
   brew prune
   brew cleanup
   brew cask cleanup
