@@ -4,12 +4,8 @@
 # xcode-select --install
 
 brew_get_head() {
-  brew update
-  brew upgrade
-  brew cask upgrade
-  brew prune
-  brew cleanup
-  brew cask cleanup
+  brew update; brew upgrade; brew cask upgrade
+  brew prune; brew cleanup; brew cask cleanup
 }
 
 brew_install() {
@@ -137,7 +133,7 @@ install_node(){
   nvm install --lts --latest-npm
   local LTS_VERSION="$(nvm ls lts/* | grep -oE '(\d+\.\d+\.\d+)')"
   nvm alias default $LTS_VERSION && nvm use default
-  local npms=(
+  local globals=(
     'create-react-app'
     'editorconfig'
     'eslint'
@@ -146,7 +142,7 @@ install_node(){
     'nodemon'
     'serve'
     'standard'
-  ); for i in ${npms[@]}; do yarn global add ${i}; done
+  ); for i in ${globals[@]}; do yarn global add ${i}; done
 }
 
 setup_atom(){
@@ -168,7 +164,6 @@ setup_atom(){
     'linter-flow'
     'linter-ui-default'
     'minimap'
-    'nuclide'
     'nuclide'
     'react'
     'riot'
