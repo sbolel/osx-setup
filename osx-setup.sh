@@ -67,6 +67,7 @@ brew_install() {
     'hub'
     'imagemagick'
     'imagemagick@6'
+    'lastpass-cli'
     'mongodb'
     'mongoose'
     'mysql'
@@ -102,6 +103,8 @@ brew_install() {
 
   # Install Casks
   local casks=(
+    '1password'
+    '1password-cli'
     'atom'
     'brave'
     'ccleaner'
