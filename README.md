@@ -7,9 +7,9 @@
 
 ## `osx-setup.sh` Overview
 
-* Installs [Homebrew](http://brew.sh/) & [Homebrew Cask](http://caskroom.io/)
-* Installs brew formulae and cask bits
-    - Git and supporting apps (and configure git)
-    - Cask bits
-    - Misc Brew formulae
-* Installs Node and global npm modules
+- Installs [Homebrew](http://brew.sh/) & [Homebrew Cask](http://caskroom.io/)
+- Installs brew formulae and cask bits
+  - Git and supporting apps (and configure git)
+  - Cask bits
+  - Misc Brew formulae
+- Installs Node and global npm modules

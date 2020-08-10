@@ -1,5 +1,5 @@
 # OSX Hardening Snippets
-# 
+#
 # Original Source:
 # github.com/drduh/macOS-Security-and-Privacy-Guide
 
@@ -7,7 +7,7 @@
 # Full disk encryption
 ########################################################
 
-# enforce hibernation and evict FileVault keys from 
+# enforce hibernation and evict FileVault keys from
 # memory instead of traditional sleep to memory
 sudo pmset -a destroyfvkeyonstandby 1
 sudo pmset -a hibernatemode 25
@@ -32,7 +32,7 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setloggingmode on
 # Enable stealth mode:
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
 
-# Prevent built-in software as well as code-signed, 
+# Prevent built-in software as well as code-signed,
 # downloaded software from being whitelisted automatically:
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setallowsigned off
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setallowsignedapp off
@@ -45,7 +45,7 @@ sudo pkill -HUP socketfilterfw
 ########################################################
 
 # When macOS connects to new networks, it probes the network & launches
-# Captive Portal assistant utility if connectivity can't be determined. 
+# Captive Portal assistant utility if connectivity can't be determined.
 
 # Disable this feature:
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control Active -bool false
@@ -57,7 +57,7 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.c
 # Default macOS Curl uses Secure Transport for SSL/TLS validation.
 
 # To use OpenSSL, install with brew
-brew install curl --with-openssl
+brew install curl-openssl
 
 # ensure it's the default:
 brew link --force curl
@@ -105,7 +105,7 @@ brew install gnupg2
 # with-fingerprint
 ############################
 
-# Install the keyservers CA certificate to configure GnuPG to use 
+# Install the keyservers CA certificate to configure GnuPG to use
 # SSL when fetching new keys and prefer strong cryptographic primitives.
 curl -O https://sks-keyservers.net/sks-keyservers.netCA.pem
 sudo mv sks-keyservers.netCA.pem /etc
@@ -128,11 +128,11 @@ csrutil status
 # Quarantine
 ########################################################
 
-# Quarantine stores information about downloaded files in 
+# Quarantine stores information about downloaded files in
 # ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV2
 
 # Examine the file to see what is stored:
-$ sudo chflags schg ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV2
+# $ sudo chflags schg ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV2
 
 # To permanently disable feature, clear the file:
 :>~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV2
