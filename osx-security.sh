@@ -1,7 +1,7 @@
-# OSX Hardening Snippets
+#!/bin/bash
 #
-# Original Source:
-# github.com/drduh/macOS-Security-and-Privacy-Guide
+# OSX Hardening Snippets
+# Original Source: github.com/drduh/macOS-Security-and-Privacy-Guide
 
 ########################################################
 # Full disk encryption
