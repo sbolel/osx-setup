@@ -1,0 +1,94 @@
+{
+  "name": "@sbolel/osx-setup",
+  "version": "0.0.0-semantic-release",
+  "description": "osx-setup and osx-security scripts",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sbolel/osx-setup.git"
+  },
+  "keywords": [
+    "macos",
+    "homebrew",
+    "security",
+    "setup"
+  ],
+  "author": "Sinan Bolel <sbolel@users.noreply.github.com> (https://sinanbolel.com)",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/sbolel/osx-setup/issues"
+  },
+  "homepage": "https://github.com/sbolel/osx-setup#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/github": "^7.1.1",
+    "@semantic-release/npm": "^7.0.6",
+    "@semantic-release/release-notes-generator": "^9.0.1",
+    "husky": "^4.3.0",
+    "semantic-release": "^17.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release": {
+    "private": true,
+    "branches": [
+      "master",
+      "next",
+      {
+        "name": "alpha",
+        "prerelease": true
+      },
+      {
+        "name": "beta",
+        "prerelease": true
+      }
+    ],
+    "tagFormat": "v${version}",
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits"
+        }
+      ],
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            "CHANGELOG.md",
+            "README.md"
+          ]
+        }
+      ]
+    ],
+    "preset": "conventionalcommits"
+  }
+}

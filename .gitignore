@@ -1,1 +1,11 @@
-.DS_Store
+# macos
+**/.DS_Store
+
+# npm
+**/node_modules
+
+# env
+.oh-my-zsh/custom/env/*.zsh
+
+# log files
+**/*.log

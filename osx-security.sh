@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # OSX Hardening Snippets
 # Original Source: github.com/drduh/macOS-Security-and-Privacy-Guide
