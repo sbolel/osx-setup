@@ -48,7 +48,7 @@ sudo pkill -HUP socketfilterfw
 # Captive Portal assistant utility if connectivity can't be determined.
 
 # Disable this feature:
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control Active -bool false
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control.plist Active -bool false
 
 ########################################################
 # Curl
