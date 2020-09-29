@@ -2,7 +2,12 @@ const path = require('path')
 const promisify = require('util').promisify
 const exec = promisify(require('child_process').exec)
 
-async function execScript(filename) {
+const scripts = [
+  'osx-setup.sh',
+  'osx-security.sh'
+]
+
+async function execScript (filename) {
   try {
     const { stdout, stderr } = await exec(`./${path.resolve(__dirname, filename)}`)
     console.log('stdout:', stdout)
@@ -12,9 +17,8 @@ async function execScript(filename) {
   }
 }
 
-async function main() {
-  await execScript('osx-setup.sh')
-  await execScript('osx-security.sh')
+async function main () {
+  await Promise.all(scripts.map(execScript))
 }
 
 main()
