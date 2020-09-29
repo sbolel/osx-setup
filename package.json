@@ -24,6 +24,10 @@
     "url": "https://github.com/sbolel/osx-setup/issues"
   },
   "homepage": "https://github.com/sbolel/osx-setup#readme",
+  "resolutions": {
+    "mem": ">=4.0.0",
+    "yargs-parser": ">=18.1.2"
+  },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
