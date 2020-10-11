@@ -114,6 +114,13 @@ symlink_jsc() {
   ln -s /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc /usr/local/bin
 }
 
+gpg_import() {
+  cd $HOME/Downloads
+  wget https://mullvad.net/media/mullvad-code-signing.asc && \
+    gpg --import mullvad-code-signing.asc && \
+    rm mullvad-code-signing.asc
+}
+
 # ---------------------------------------------------------
 
 brew_install
